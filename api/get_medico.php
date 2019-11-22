@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../control/MedicoControl.php';
+include __DIR__ .'/../control/Medico.php';
 
 $medicoControl = new MedicoControl();
 

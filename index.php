@@ -1,6 +1,6 @@
 <?php
 //define('PASTAPROJETO', 'AulaBanco');
-define('PASTAPROJETO', 'PhpBackend-master');
+define('PASTAPROJETO', 'ControlMED');
 
 /* Função criada para retornar o tipo de requisição */
 function checkRequest() {
@@ -29,6 +29,7 @@ $answer = checkRequest();
 
 $request = $_SERVER['REQUEST_URI']; 
 http://localhost:8080/PhpBackEnd
+//echo $request;
 
 // IDENTIFICA A URI DA REQUISIÇÃO
 
@@ -40,11 +41,14 @@ switch ($request) {
     case '' :
         require __DIR__ . '/api/api.php';
         break;
-    case '/'.PASTAPROJETO.'/pessoas' :
-        require __DIR__ . '/api/'.$answer.'_pessoa.php';
+    case '/'.PASTAPROJETO.'/medico' :
+        require __DIR__ . '/api/'.$answer.'_medico.php';
         break;
-    case '/'.PASTAPROJETO.'/conteudo' :
-        require __DIR__ . '/api/'.$answer.'_conteudo.php';
+    case '/'.PASTAPROJETO.'/farmacia' :
+        require __DIR__ . '/api/'.$answer.'_farmacia.php';
+        break;
+		case '/'.PASTAPROJETO.'/receita' :
+        require __DIR__ . '/api/'.$answer.'_receita.php';
         break;
     
     default:

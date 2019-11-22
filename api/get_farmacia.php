@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../control/FarmaciaControl.php';
+include __DIR__ . '/../control/Farmacia.php';
 
 $farmaciaControl = new FarmaciaControl();
 

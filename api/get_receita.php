@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../control/ReceitaControl.php';
+include __DIR__ . '/../control/Receita.php';
 
 $receitaControl = new ReceitaControl();
 

@@ -2,7 +2,7 @@
 
 include __DIR__ . '/Conexao.php';
 
-class ClassName extends Conexao {
+class Receita extends Conexao {
 
     Private $id_receita;
     Private $farmacia_cnpj;

@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../control/ReceitaControl.php';
+include __DIR__ . '/../control/Receita.php';
 
 $data = file_get_contents('php://input');
 $obj = json_decode($data);
