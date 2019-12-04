@@ -103,13 +103,23 @@ class Receita extends Conexao {
         $consulta = Conexao::prepare($sql);
         $consulta->bindValue('id_receita', $id_receita);
         $consulta->execute();
+        return $consulta->fetchAll();
     }
 
-    function find($id_receita = null) {
-        $sql = "SELECT * FROM receita WHERE id_receita = :id_receita";
+    function find_cpf($cpf=null) {
+        $sql = "SELECT * FROM receita WHERE cpf_paciente = :cpf";
         $consulta = Conexao::prepare($sql);
-        $consulta->bindValue('id_receita', $id_receita);
+        $consulta->bindValue('cpf', $cpf);
         $consulta->execute();
+        return $consulta->fetchAll();
+    }
+    function find_crm($crm=null) {
+        
+        $sql = "SELECT * FROM receita WHERE medico_crm = :crm";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('crm', $crm);
+        $consulta->execute();
+        return $consulta->fetchAll();
     }
 
     function findAll() {

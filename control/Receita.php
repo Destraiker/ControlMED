@@ -18,9 +18,15 @@ class ReceitaControl{
 		return $receita->delete($obj,$id_receita);
 	}
 
-	function find($id_receita = null){
+	function find($obj){
 		$receita = new Receita();
-		return $receita->find($id_receita);
+		if(isset($obj->cpf)){
+			return $receita->find_cpf($obj->cpf);
+		}else if(isset($obj->crm)){
+			return $receita->find_crm($obj->crm);
+		}else{
+			return null;
+		}
 	}
 
 	function findAll(){
