@@ -82,7 +82,7 @@ class Receita extends Conexao {
         $consulta = Conexao::prepare($sql);
         $consulta->bindValue('farmacia_cnpj', null);
         $consulta->bindValue('medico_crm', $obj->medico_crm);
-        $consulta->bindValue('data_emicao', date('d/m/Y'));
+        $consulta->bindValue('data_emicao', date('Y-m-d'));
         $consulta->bindValue('vencimento', $obj->vencimento);
         $consulta->bindValue('descricao', $obj->descricao);
         $consulta->bindValue('cpf_paciente', $obj->cpf_paciente);
@@ -118,6 +118,13 @@ class Receita extends Conexao {
         $sql = "SELECT * FROM receita WHERE medico_crm = :crm";
         $consulta = Conexao::prepare($sql);
         $consulta->bindValue('crm', $crm);
+        $consulta->execute();
+        return $consulta->fetchAll();
+    }
+    function find_cnpj($cnpj=null) {
+        $sql = "SELECT * FROM receita WHERE farmacia_cnpj = :cnpj";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('cnpj', $cnpj);
         $consulta->execute();
         return $consulta->fetchAll();
     }

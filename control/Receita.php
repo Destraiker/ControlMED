@@ -20,12 +20,14 @@ class ReceitaControl{
 
 	function find($obj){
 		$receita = new Receita();
-		if(isset($obj->cpf)){
-			return $receita->find_cpf($obj->cpf);
+		if(isset($obj->cpf_paciente)){
+			return $receita->find_cpf($obj->cpf_paciente);
 		}else if(isset($obj->crm)){
 			return $receita->find_crm($obj->crm);
+		}else if(isset($obj->cnpj)){
+			return $receita->find_cnpj($obj->cnpj);
 		}else{
-			return null;
+			return array("mensagem" => "Parâmetros Inválidos");;
 		}
 	}
 

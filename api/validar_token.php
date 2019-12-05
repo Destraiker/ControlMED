@@ -1,9 +1,9 @@
 <?php
-include_once '../control/jwt_libs/core.php';
-include_once '../control/jwt_libs/BeforeValidException.php';
-include_once '../control/jwt_libs/ExpiredException.php';
-include_once '../control/jwt_libs/SignatureInvalidException.php';
-include_once '../control/jwt_libs/JWT.php';
+include_once  __DIR__ .'/../control/jwt_libs/core.php';
+include_once  __DIR__ .'/../control/jwt_libs/BeforeValidException.php';
+include_once  __DIR__ .'/../control/jwt_libs/ExpiredException.php';
+include_once  __DIR__ .'/../control/jwt_libs/SignatureInvalidException.php';
+include_once  __DIR__ .'/../control/jwt_libs/JWT.php';
 
 use \Firebase\JWT\JWT;
 

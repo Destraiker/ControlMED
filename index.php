@@ -45,14 +45,32 @@ http: //localhost:8080/PhpBackEnd
 
 
 switch ($request) {
-	case '/' . PASTAPROJETO . '/':
-		require __DIR__ . '/api/api.php';
-		break;
-	case '':
-		require __DIR__ . '/api/api.php';
-		break;
 	case '/' . PASTAPROJETO . '/medico/receitas':
 		require __DIR__ . '/api/get_receita.php';
+		break;
+	case '/' . PASTAPROJETO . '/medico/emitir_receita':
+		require __DIR__ . '/api/post_receita.php';
+		break;
+	case '/' . PASTAPROJETO . '/medico/cadastrar':
+		require __DIR__ . '/api/post_medico.php';
+		break;
+	case '/' . PASTAPROJETO . '/medico/login':
+		require __DIR__ . '/api/login_medico.php';
+		break;
+	case '/' . PASTAPROJETO . '/farmarcia/cadastrar':
+		require __DIR__ . '/api/post_farmarcia.php';
+		break;
+	case '/' . PASTAPROJETO . '/farmarcia/login':
+		require __DIR__ . '/api/login_farmarcia.php';
+		break;
+	case '/' . PASTAPROJETO . '/farmacia/receitas_cpf':
+		require __DIR__ . '/api/get_receita.php';
+		break;
+	case '/' . PASTAPROJETO . '/farmacia/receitas_cnpj':
+		require __DIR__ . '/api/get_receita.php';
+		break;
+	case '/' . PASTAPROJETO . '/api/validar':
+		require __DIR__ . '/api/validar_token.php';
 		break;
 	case '/' . PASTAPROJETO . '/':
 		require __DIR__ . '/api/api.php';

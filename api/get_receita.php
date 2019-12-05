@@ -8,6 +8,7 @@ $obj = json_decode($data);
 if (!empty($data)) {
     try {
         $receitaControl = new ReceitaControl();
+        
         $result=$receitaControl->find($obj);
         echo json_encode($result);
     } catch (PDOException $e) {

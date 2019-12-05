@@ -6,14 +6,14 @@ class Farmacia extends Conexao {
 
     Private $Cnpj;
     Private $Nome;
-    Private $senha;
+    Private $Senha;
     
     function getSenha() {
-        return $this->senha;
+        return $this->Senha;
     }
 
     function setSenha($senha) {
-        $this->senha = $senha;
+        $this->Senha = $senha;
     }
     function getCnpj() {
         return $this->Cnpj;
@@ -68,11 +68,31 @@ class Farmacia extends Conexao {
         $consulta->execute();
         return $consulta->fetchAll();
     }
+    function cnpj_exists($cnpj = null)
+    {
+        $sql = "SELECT * FROM farmacia WHERE cnpj = :cnpj";
+        $consulta = Conexao::prepare($sql);
+        $consulta->bindValue('cnpj', $cnpj);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            // get record details / values
+            $row = $consulta->fetch(PDO::FETCH_ASSOC);
+
+            // assign values to object properties
+            $this->Cnpj = $row['cnpj'];
+            $this->Nome = $row['nome'];
+            $this->Senha = $row['senha'];
+
+            return true;
+        } else {
+            return false;
+        }
+    }
     function gerarHashSenha($senha){
         return password_hash($senha, PASSWORD_DEFAULT);;
     }
     function verificarSenha($hash,$senha){
-        return var_dump(password_verify($senha, $hash));
+        return password_verify($senha, $hash);
     }
 
 }
